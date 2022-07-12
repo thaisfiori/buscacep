@@ -5,7 +5,7 @@ defmodule MyAppWeb.AddressControllerTest do
 
   alias MyApp.ViaCep.ClientMock
 
-  describe "GET /api/:cep" do
+  describe "GET /api/cep/:cep" do
     test "succeed  with valid params", %{conn: conn} do
       cep = "06460010"
 
@@ -33,7 +33,7 @@ defmodule MyAppWeb.AddressControllerTest do
                "bairro" => "Tamboré"
              } =
                conn
-               |> get("/api/" <> cep)
+               |> get("/api/cep/" <> cep)
                |> json_response(200)
     end
 
@@ -43,7 +43,7 @@ defmodule MyAppWeb.AddressControllerTest do
       expect(ClientMock, :get_cep_info, fn ^cep -> {:error, :not_found} end)
 
       conn
-      |> get("/api/" <> cep)
+      |> get("/api/cep/" <> cep)
       |> json_response(404)
     end
 
@@ -53,7 +53,7 @@ defmodule MyAppWeb.AddressControllerTest do
       expect(ClientMock, :get_cep_info, fn ^cep -> {:error, :invalid_cep} end)
 
       conn
-      |> get("/api/" <> cep)
+      |> get("/api/cep/" <> cep)
       |> json_response(400)
     end
   end

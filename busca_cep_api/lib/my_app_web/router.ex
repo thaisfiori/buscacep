@@ -16,14 +16,18 @@ defmodule MyAppWeb.Router do
 
   scope "/", MyAppWeb do
     pipe_through(:browser)
-
-    get("/", PageController, :index)
   end
 
   scope "/api", MyAppWeb do
     pipe_through(:api)
 
-    get("/:cep", AddressController, :index)
+    scope "/cep" do
+      get("/:cep", AddressController, :index)
+    end
+
+    scope "/export" do
+      get("/", ExportController, :create)
+    end
   end
 
   # Other scopes may use custom stacks.

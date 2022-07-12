@@ -4,6 +4,7 @@ defmodule MyApp.Address do
   import Ecto.Changeset
 
   alias MyApp.Address.GetAddressByCep
+  alias MyApp.Repo
 
   @required [:cep]
   @optional [:complemento, :bairro, :ibge, :gia, :ddd, :siafi, :logradouro, :uf, :localidade]
@@ -38,6 +39,11 @@ defmodule MyApp.Address do
       8 -> {:ok, cep}
       _ -> {:error, :invalid_cep}
     end
+  end
+
+  @doc "list all addresses"
+  def list_all() do
+    Repo.all(__MODULE__)
   end
 
   defp trim_cep(cep) do
