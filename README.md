@@ -7,6 +7,7 @@ Esa é uma api em Elixir para buscar endereços através de ceps.
 2. Abra o terminal na pasta do projeto `/busca_cep_api`
 3. Nesta pasta, rode o comando `docker_compose_up -d` para subir um banco de dados postgress
 4. Rode o comando `mix.ecto.setup` para rodar as migrations e conectar o projeto como banco de dados
+5. Inicie o servidor phenix: mix phx.server
 
 ## Buscando um cep
 Após iniciar o processo, você pode abrir o seu navegador de preferência e colocar e acessar os endpoints do projeto em seu locallhost:4000
