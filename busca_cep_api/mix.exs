@@ -50,7 +50,9 @@ defmodule MyApp.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tesla, "~> 1.4"},
-      {:hackney, "~> 1.10"}
+      {:hackney, "~> 1.10"},
+      # {:bypass, "~> 2.1", only: :test},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 

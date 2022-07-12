@@ -26,8 +26,11 @@ defmodule MyApp.Address do
     |> cast(params, @required ++ @optional)
     |> formmat_cep()
     |> validate_length(:cep, is: 8)
+    |> unique_constraint(:cep)
   end
 
+  @doc "validate and formmat cep"
+  @spec validate_cep(map()) :: {:ok, String.t()} | {:error, :invalid_atom}
   def validate_cep(%{"cep" => cep}) do
     cep = trim_cep(cep)
 
@@ -39,7 +42,6 @@ defmodule MyApp.Address do
 
   defp trim_cep(cep) do
     cep
-    |> IO.inspect(label: :cep)
     |> String.replace(".", "")
     |> String.replace("-", "")
   end

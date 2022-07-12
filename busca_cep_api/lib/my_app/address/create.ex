@@ -13,9 +13,7 @@ defmodule MyApp.Address.Create do
           siafi: String.t()
         }
   def execute(param) do
-    input = %{"cep" => param}
-
-    with {:ok, cep} <- Address.validate_cep(input),
+    with {:ok, cep} <- Address.validate_cep(%{"cep" => param}),
          {:ok, params} <- client().get_cep_info(cep),
          changeset <- Address.changeset(params),
          {:ok, %Address{}} = address <- Repo.insert(changeset) do

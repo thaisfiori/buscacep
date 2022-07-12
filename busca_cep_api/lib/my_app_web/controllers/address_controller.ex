@@ -5,7 +5,7 @@ defmodule MyAppWeb.AddressController do
   alias MyAppWeb.ErrorView
 
   def index(conn, params) do
-    with {:ok, cep} <- Address.validate_cep(params) |> IO.inspect(),
+    with {:ok, cep} <- Address.validate_cep(params),
          {:ok, address} <- Address.get_address_by_cep(cep) do
       conn
       |> put_status(200)

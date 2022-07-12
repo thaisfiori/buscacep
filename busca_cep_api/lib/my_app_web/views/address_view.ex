@@ -8,6 +8,7 @@ defmodule MyAppWeb.AddressView do
     %{
       cep: address.cep,
       logradouro: address.logradouro,
+      localidade: address.localidade,
       uf: address.uf,
       bairro: address.bairro
     }
