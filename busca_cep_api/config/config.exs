@@ -10,6 +10,10 @@ import Config
 config :my_app,
   ecto_repos: [MyApp.Repo]
 
+config :my_app,
+       MyApp.Address.Create,
+       via_cep_adapter: MyApp.ViaCep.Client
+
 # Configures the endpoint
 config :my_app, MyAppWeb.Endpoint,
   url: [host: "localhost"],
