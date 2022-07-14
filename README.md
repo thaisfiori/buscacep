@@ -17,3 +17,8 @@ Caso seja um cep inválivo ou não existente, você receberá as mensagens Inval
 
 ## Importando um CSV
 Para ver todos os ceps já cadastrados na api, basta colocar no navegador a seguinte url: "http://localhost:4000/api/export" e haverá um download dos registros, em CSV disponível.
+
+## Diagrama do projeto para busca do cep
+
+![image](https://user-images.githubusercontent.com/80783752/179072050-31da333a-8d70-49c0-b301-cfcbf52524a3.png)
+
